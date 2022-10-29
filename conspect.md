@@ -1,4 +1,6 @@
-Git - Version Control System
+# Conspectus. Git.
+
+## Git - Version Control System
 		The way to track code changes. Track down bugs. Return to previous versions of code
 		
 		Directory - Folder
@@ -14,5 +16,7 @@ Git - Version Control System
 	pull - download changes from remote repo
 	status - look at the status of the files (modified, new files, etc.)
 
-    ## Subheader
-    Sequence - git add (use ./filename),
+## Sequence
+	git add (use ./filename),
+	git commit -m "message" -m "description"
+	git push 
