@@ -1,8 +1,8 @@
 characters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
 
-def get_set():
-    with open ('dict.txt') as dt:
+def get_set(path = 'dict.txt'):
+    with open (path) as dt:
         lines = dt.readlines()
         
     wordset = set()
@@ -15,7 +15,6 @@ def get_set():
 
 wordset = get_set()
 
-
 def encrypter(word, argument):
 
     if (argument < 0) or (argument > 26):
@@ -25,11 +24,14 @@ def encrypter(word, argument):
     word = word.upper()
     en_word = ''
     for char in word:
-        
-        if ((characters.index(char) + argument) < 26):
-            new_char = characters[characters.index(char)+argument]
+        if char == ' ':
+            new_char = char
         else:
-            new_char = characters[characters.index(char)+argument-26]
+        
+            if ((characters.index(char) + argument) < 26):
+                new_char = characters[characters.index(char)+argument]
+            else:
+                new_char = characters[characters.index(char)+argument-26]
             
         en_word += new_char
         
@@ -55,6 +57,7 @@ def decrypter(word, argument):
 
     return dec_word
 
+
 def brute_force(en_word):
     en_word = en_word.upper()
     possible_keys = set()
@@ -64,7 +67,6 @@ def brute_force(en_word):
         if plainword in wordset:
             possible_keys.add(key)
 
-    for key in possible_keys:
-        print(decrypter(en_word, key), 'key =', key)
+    return possible_keys
       
 
