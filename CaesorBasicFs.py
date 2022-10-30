@@ -13,8 +13,6 @@ def get_set(path = 'dict.txt'):
         
     return wordset
 
-wordset = get_set()
-
 def encrypter(word, argument):
 
     if (argument < 0) or (argument > 26):
@@ -58,7 +56,7 @@ def decrypter(word, argument):
     return dec_word
 
 
-def brute_force(en_word):
+def brute_force(en_word, wordset):
     en_word = en_word.upper()
     possible_keys = set()
 

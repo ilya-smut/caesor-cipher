@@ -1,8 +1,7 @@
-import CaesorPhraseHack as ph
-import CaesorBasicFs as bf
+from CaesorMngr import Caesor 
 
-message = 'I Love Olga very much'
-encrypted_message = bf.encrypter(message, 18)
-print(message)
-print(encrypted_message)
-print(ph.phrase_brute_force(phrase = encrypted_message))
+c = Caesor()
+c.change_input('I Enjoy being that stupid since I am so in love with my Dear Olga')
+c.change_input(c.encrypt(23))
+c.change_input(c.brute_force())
+c.print()
